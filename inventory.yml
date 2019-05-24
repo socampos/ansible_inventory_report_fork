@@ -18,6 +18,8 @@
   hosts: ansible
   gather_facts: False
 
+  tasks:
+
     - name: create HTML report
       become: yes
       template:
