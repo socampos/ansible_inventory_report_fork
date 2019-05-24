@@ -1,2 +1,2 @@
 - name: RETRIEVE ARISTA EOS FACTS
-  ios_facts:
+  eos_facts:
