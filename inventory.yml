@@ -1,18 +1,19 @@
 ---
-- name: build NXOS inventory report
-  hosts: nxos
+- name: build network automation inventory report
+  hosts: routers
   connection: network_cli
   gather_facts: False
 
   vars:
     desired_version: "7.0(3)I7(1)"
-    file_path: /var/www/html/generated_report.html
-
+    # file_path: /var/www/html/generated_report.html
+    file_path: "{{playbook_dir}}"
   tasks:
-    - name: gathering nxos facts
-      nxos_facts:
-        provider: "{{login_info}}"
-      register: all_facts
+    - name: RETRIEVE FACTS
+      include_role:
+        name: "{{ansible_network_os}}"
+        tasks_from: get_facts.yml
+      when: ansible_network_os is defined
 
     - name: create HTML report
       template:
