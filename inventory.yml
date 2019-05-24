@@ -15,6 +15,7 @@
       when: ansible_network_os is defined
 
     - name: create HTML report
+      become: yes
       template:
         src: report.j2
         dest: "{{ file_path }}"
