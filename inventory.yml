@@ -17,6 +17,6 @@
     - name: create HTML report
       template:
         src: report.j2
-        dest: "{{ file_path }}"
+        dest: "{{ file_path }}/index.html"
       delegate_to: localhost
       run_once: true
