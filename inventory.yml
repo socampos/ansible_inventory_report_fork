@@ -1,7 +1,6 @@
 ---
 - name: build network automation inventory report
   hosts: routers
-  connection: network_cli
   gather_facts: False
 
   vars:

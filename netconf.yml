@@ -1,0 +1,11 @@
+---
+- name: turn on juniper netconf
+  hosts: juniper
+  gather_facts: False
+
+  tasks:
+    - name: TURN ON JUNOS NETCONF
+      vars:
+        ansible_connection: network_cli
+      junos_netconf:
+      when: ansible_network_os is defined
