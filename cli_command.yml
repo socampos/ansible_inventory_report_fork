@@ -10,3 +10,8 @@
       cli_command:
         command: "show version"
       when: ansible_network_os is defined
+      register: output
+
+    - name: print to terminal
+      debug:
+        msg: "{{output.stdout}}"
