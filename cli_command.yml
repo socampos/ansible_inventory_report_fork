@@ -1,0 +1,12 @@
+---
+- name: turn on juniper netconf
+  hosts: juniper
+  gather_facts: False
+
+  tasks:
+    - name: run cli_command on juniper
+      vars:
+        ansible_connection: network_cli
+      cli_command:
+        command: "show version"
+      when: ansible_network_os is defined
