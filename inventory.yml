@@ -1,6 +1,6 @@
 ---
 - name: build network automation inventory report
-  hosts: routers
+  hosts: LabGroup
   gather_facts: False
 
 
