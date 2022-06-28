@@ -11,6 +11,17 @@
         tasks_from: get_facts.yml
       when: ansible_network_os is defined
 
+- name: Display content of j2
+  hosts: localhost
+  tasks:
+    - name: Display j2 contents
+      command: cat report.j2
+      register: command_output
+
+    - name: Print to console
+      debug:
+        msg: "{{command_output.stdout}}"
+
 - name: build network automation inventory report
   hosts: localhost
   gather_facts: False
