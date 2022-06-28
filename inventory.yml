@@ -12,7 +12,7 @@
       when: ansible_network_os is defined
 
 - name: build network automation inventory report
-  hosts: ansible
+  hosts: localhost
   gather_facts: False
 
   vars:
